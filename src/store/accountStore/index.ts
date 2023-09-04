@@ -11,8 +11,6 @@ export const createAccountSlice: StateCreator<AccountSlice> = (set, get, api) =>
       const updatedAccounts = state.accounts.map((account) => {
         const updatedAccount = accountUpdates.find((update) => update.id === account.id)
         if (updatedAccount) {
-          console.log(account.balance, 'current balance of the thing')
-          console.log(updatedAccount.balance, ' balance from new info')
           // Update the balance
           return { ...account, balance: account.balance + updatedAccount.balance }
         }

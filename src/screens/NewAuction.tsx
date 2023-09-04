@@ -153,7 +153,9 @@ export const NewAuction = ({ route }: any) => {
               Date
             </CustomText>
             <TouchableOpacity
-              onPress={() => setDateOpen(true)}
+              onPress={() => {
+                if (editableAuction) setDateOpen(true)
+              }}
               style={{
                 backgroundColor: dateChosen === undefined ? 'black' : 'white',
                 paddingVertical: 5,
@@ -173,7 +175,9 @@ export const NewAuction = ({ route }: any) => {
               Time
             </CustomText>
             <TouchableOpacity
-              onPress={() => setTimeOpen(true)}
+              onPress={() => {
+                if (editableAuction) setTimeOpen(true)
+              }}
               style={{
                 backgroundColor: timeChosen === undefined ? 'black' : 'white',
                 paddingVertical: 5,
@@ -280,8 +284,8 @@ export const NewAuction = ({ route }: any) => {
                   handleAuctionModification()
                 } else {
                   addAuction()
+                  navigation.goBack()
                 }
-                navigation.goBack()
               }}
               style={{
                 backgroundColor: COLORS.themeColor,
@@ -300,7 +304,7 @@ export const NewAuction = ({ route }: any) => {
           </View>
           {dateOpen && (
             <DateTimePicker
-              disabled={editableAuction}
+              disabled={!editableAuction}
               mode='date'
               display='spinner'
               minimumDate={dateNow}
@@ -315,7 +319,7 @@ export const NewAuction = ({ route }: any) => {
           )}
           {timeOpen && (
             <DateTimePicker
-              disabled={editableAuction}
+              disabled={!editableAuction}
               mode='time'
               display='spinner'
               minimumDate={dateNow}
