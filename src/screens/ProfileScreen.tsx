@@ -33,7 +33,7 @@ const ProfileScreen = () => {
               zIndex: 100,
               marginTop: -80,
             }}>
-            <MaterialCommunityIcons name='account-outline' size={72} color={'black'} />
+            {/* <MaterialCommunityIcons name='account-outline' size={72} color={'black'} /> */}
           </View>
           <View style={{ marginHorizontal: 50, marginTop: 20 }}>
             <CustomText
